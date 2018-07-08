@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -31,7 +30,7 @@ public class UsuarioService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario user = repository.findByUsername(username);
-		if(user!=null) {
+		if (user != null) {
 			return new User(user.getUsername(), user.getPassword(), user.isActivo(), user.isActivo(), user.isActivo(),
 					user.isActivo(), buildGranted(user.getRol()));
 		}

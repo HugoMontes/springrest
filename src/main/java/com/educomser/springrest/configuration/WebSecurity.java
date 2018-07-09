@@ -34,9 +34,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	 */
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		// Opcionalmente se puede encriptar el password
+		// Especificar el tipo de cifrado para el password
 		auth.userDetailsService(usuarioService).passwordEncoder(new BCryptPasswordEncoder());
-		//auth.userDetailsService(usuarioService);
 	}
 
 	// Configuracion para las peticiones

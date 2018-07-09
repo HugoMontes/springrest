@@ -58,7 +58,5 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 			Authentication authResult) throws IOException, ServletException {
 		// Si la autenticacion es exitosa, agregar el token a la respuesta
 		JwtUtil.addAuthentication(response, authResult.getName());
-	}
-
-	
+	}	
 }

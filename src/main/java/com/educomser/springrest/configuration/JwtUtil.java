@@ -13,7 +13,7 @@ import static java.util.Collections.emptyList;
 
 public class JwtUtil {
 
-	// Metodo para crear el jwt y enviarlo al cliente en el header de la respuesta
+	// Metodo que crea el jwt y enviarlo al cliente en el header de la respuesta
 	static void addAuthentication(HttpServletResponse response, String username) {
 		String token=Jwts.builder().setSubject(username)
 				// Hash con el que se firma la clave
@@ -36,7 +36,8 @@ public class JwtUtil {
 					.getSubject();
 			// Recordemos que para las demas peticion que no son /login
 			// no requerimos una autenticacion por username y password
-			// por este motivo podermo devolver un UsernamePasswordAuthenticationToken sin password
+			// por este motivo podemos devolver un 
+			// UsernamePasswordAuthenticationToken sin password
 			return user!=null?new UsernamePasswordAuthenticationToken(user, null, emptyList()):null;
 		}
 		return null;
